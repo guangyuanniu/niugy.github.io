@@ -5,13 +5,17 @@
   
 
   
-  <title>Hexo</title>
+  <title>db_index | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="数据读取时间分为三个阶段：  寻道时间：磁臂移动到指定磁道所需时间（主流磁盘5ms以下）  旋转延迟：即磁盘转速比如7200转指一分钟7200次一秒120次，旋转延迟&#x3D;1&#x2F;120&#x2F;2&#x3D;4.17ms  传输时间:从硬盘读取时间0.几毫秒可以忽略不计   节点访问时间&gt;&gt;&gt;&gt;节点内部访问时间时 B+更有优势 数据读取添加索引的原理：耗时在磁盘IO上，没索引之前每加载一个数据项就">
+<meta property="og:type" content="article">
+<meta property="og:title" content="db_index">
+<meta property="og:url" content="http://yoursite.com/2020/04/10/db-index/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="数据读取时间分为三个阶段：  寻道时间：磁臂移动到指定磁道所需时间（主流磁盘5ms以下）  旋转延迟：即磁盘转速比如7200转指一分钟7200次一秒120次，旋转延迟&#x3D;1&#x2F;120&#x2F;2&#x3D;4.17ms  传输时间:从硬盘读取时间0.几毫秒可以忽略不计   节点访问时间&gt;&gt;&gt;&gt;节点内部访问时间时 B+更有优势 数据读取添加索引的原理：耗时在磁盘IO上，没索引之前每加载一个数据项就">
 <meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2020-04-10T06:54:56.000Z">
+<meta property="article:modified_time" content="2020-04-10T06:55:53.760Z">
 <meta property="article:author" content="John Doe">
 <meta name="twitter:card" content="summary">
   
@@ -62,9 +66,7 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-    <article id="post-db-index" class="article article-type-post" itemscope itemprop="blogPost">
+        <section id="main"><article id="post-db-index" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/04/10/db-index/" class="article-date">
   <time datetime="2020-04-10T06:54:56.000Z" itemprop="datePublished">2020-04-10</time>
@@ -77,8 +79,8 @@
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/10/db-index/">db_index</a>
+    <h1 class="article-title" itemprop="name">
+      db_index
     </h1>
   
 
@@ -128,96 +130,19 @@
     </footer>
   </div>
   
-</article>
-
-
+    
+<nav id="article-nav">
   
-    <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/04/10/hello-world/" class="article-date">
-  <time datetime="2020-04-10T06:48:46.362Z" itemprop="datePublished">2020-04-10</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/10/hello-world/">Hello World</a>
-    </h1>
+    <a href="/2020/04/10/hello-world/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hello World</div>
+    </a>
   
+</nav>
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/10/hello-world/" data-id="ck8tucqrm0001kls6b8r07fxo" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
   
 </article>
-
-
-  
-    <article id="post-hello-world-1" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/04/09/hello-world-1/" class="article-date">
-  <time datetime="2020-04-09T10:08:41.000Z" itemprop="datePublished">2020-04-09</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/04/09/hello-world-1/">hello world</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://yoursite.com/2020/04/09/hello-world-1/" data-id="ck8tucqrg0000kls637vo2iwz" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-
 
 </section>
         
